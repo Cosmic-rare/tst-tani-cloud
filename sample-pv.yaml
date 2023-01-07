@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: "***"
+spec:
+  capacity:
+    storage: *Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain 
+  nfs:
+    server: 192.168.3.192
+    path: /export/nfs/****
