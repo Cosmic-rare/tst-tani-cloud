@@ -82,7 +82,7 @@
         - 81?
     - 80と443から192.168.3.194(nginx-ingress external-ip)へのstreamを張る
 
-##　メモ
+## メモ
 
 - HTTPS…?
     - cert-botはcronjobなので後回し
