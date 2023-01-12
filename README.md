@@ -41,6 +41,21 @@
         - 1GB
         - 20GB
         - 192.168.3.193
+    - nfs-proxy
+        - tst-k8s-nfs-proxy
+        - 1vCPU
+        - 1G
+        - 10G
+        - 192.168.3.194
+
+# nfs鯖のセットアップ
+
+- /export/k8sに共有をかける
+
+# nfs-proxy鯖のセットアップ
+
+- /export/k8sにnfs鯖をマウント
+- /export/k8sに共有をかける
 
 ### クラスタのセットアップ
 
