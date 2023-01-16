@@ -13,7 +13,7 @@
 - 今あるk8sクラスタをぶっこわす
 - proxmox-web-guiのipの割り振りメモを修正しておく
 
-### VMのセットアップ
+### VMのセットアップ -> done
 
 - 検証用のKubernetesClusterを作る
     - 10.89.0.0/16
@@ -42,9 +42,9 @@
         - 20GB
         - 192.168.3.193
 
-# nfs鯖のセットアップ
+# nfs鯖のセットアップ -> done
 
-- /export/k8sに共有をかける
+- /export/nfsに共有をかける
 
 ### クラスタのセットアップ
 
@@ -62,7 +62,7 @@
     - ingressをloadbalancerにする
         - ExternalIPで接続できることを確認する
 
-### DDNS-NOWのセットアップ
+### DDNS-NOWのセットアップ -> done
 
 - Domainを追加
     - tani-exe.f5.si
@@ -71,7 +71,7 @@
 
 - VPSをついか
     - tst-k8s-public-gateway
-- VPSのセットアップ
+- VPSのセットアップ -> done
     - DNSをいい感じにする
     - wireguardをVPSとgatewayに入れる
 - VPSのnginxの設定
