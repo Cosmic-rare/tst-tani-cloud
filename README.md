@@ -16,17 +16,17 @@
 ### VMのセットアップ
 
 - 検証用のKubernetesClusterを作る
-    - 10.89.0.0/26
+    - 10.89.0.0/16
     - master
         - tst-k8s-master
         - 4vCPU
-        - 3GB
+        - 4GB
         - 25GB
         - 192.168.3.190
     - worker
         - tst-k8s-worker
         - 4vCPU
-        - 4GB
+        - 6GB
         - 20GB
         - 192.168.3.191
     - nfs
@@ -41,20 +41,9 @@
         - 1GB
         - 20GB
         - 192.168.3.193
-    - nfs-proxy
-        - tst-k8s-nfs-proxy
-        - 1vCPU
-        - 1G
-        - 10G
-        - 192.168.3.194
 
 # nfs鯖のセットアップ
 
-- /export/k8sに共有をかける
-
-# nfs-proxy鯖のセットアップ
-
-- /export/k8sにnfs鯖をマウント
 - /export/k8sに共有をかける
 
 ### クラスタのセットアップ
