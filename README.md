@@ -70,6 +70,7 @@
 ### VPSのセットアップ
 
 - VPSをついか
+    - tst-k8s-public-gateway
 - VPSのセットアップ
     - DNSをいい感じにする
     - wireguardをVPSとgatewayに入れる
