@@ -9,4 +9,8 @@ data:
     - name: default
       protocol: layer2
       addresses:
-      - 192.168.3.210-192.168.3.229
+      - 192.168.3.210-192.168.3.219
+    - name: ingress-nginx-pool
+      protocol: layer2
+      addresses:
+      - 192.168.3.194/32
