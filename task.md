@@ -5,9 +5,6 @@
 - ArgoCDをインストール
 - kubernetesにいろいろ入れる
     - ArgoCDを使って流し込む
-    - metallb
-        - ingress用のipを設定する
-        - 192.168.3.194/32
     - ingress
         - metallbのipをdefaultからさっき設定したものに変える
     - pvを作る(nfs)
