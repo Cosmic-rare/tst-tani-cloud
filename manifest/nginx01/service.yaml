@@ -1,20 +1,12 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Pod
 metadata:
   name: nginx01
+  namespace: default
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: nginx01
-  template:
-    metadata:
-      labels:
-        app: nginx01
-    spec:
-      containers:
-      - name: nginx01
-        image: nginx
+  containers:
+  - name: nginx01
+    image: nginx
 ---
 apiVersion: v1
 kind: Service
