@@ -2,11 +2,7 @@
 
 ### クラスタのセットアップ
 
-- ArgoCDをインストール
 - kubernetesにいろいろ入れる
-    - ArgoCDを使って流し込む
-    - ingress
-        - metallbのipをdefaultからさっき設定したものに変える
     - pvを作る(nfs)
     - nginxをインストール
     - hello taniを作る
