@@ -3,11 +3,7 @@
 ### クラスタのセットアップ
 
 - kubernetesにいろいろ入れる
-    - pvを作る(nfs)
-    - nginxをインストール
-    - hello taniを作る
-    - ingressをloadbalancerにする
-        - ExternalIPで接続できることを確認する
+  - hello taniを作る
 
 ### VPSのセットアップ
 
