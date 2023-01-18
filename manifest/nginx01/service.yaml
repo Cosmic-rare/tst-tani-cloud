@@ -12,6 +12,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx01
+  namespace: default
 spec:
   type: NodePort
   ports:
