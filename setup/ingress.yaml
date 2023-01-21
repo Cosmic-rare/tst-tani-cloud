@@ -10,7 +10,8 @@ metadata:
   namespace: default
 spec:
   rules:
-  - http:
+  - host: "nginx.tani-exe.f5.si"
+    http:
       paths:
       - path: /
         pathType: Prefix
