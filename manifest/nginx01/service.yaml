@@ -15,8 +15,9 @@ spec:
       containers:
         - name: nginx01
           image: nginx
-          - mountPath: "/usr/share/nginx/html"
-            name: task-pv-storage
+          volumeMounts:
+            - mountPath: "/usr/share/nginx/html"
+              name: task-pv-storage
       volumes:
         - name: task-pv-storage
           persistentVolumeClaim:
