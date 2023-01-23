@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: tani-exe-f5-si
+  namespace: default
+spec:
+  secretName: tani-exe-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  dnsNames:
+  - "*.tani-exe.f5.si"
