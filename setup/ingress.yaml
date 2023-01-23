@@ -27,4 +27,5 @@ spec:
               number: 80
   tls:
     - hosts:
-        - tani-exe.f5.si
+      - tani-exe.f5.si
+      secretName: tani-exe-tls
