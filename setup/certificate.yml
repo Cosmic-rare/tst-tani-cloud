@@ -10,3 +10,4 @@ spec:
     kind: ClusterIssuer
   dnsNames:
   - tani-exe.f5.si
+  - "*.tani-exe.f5.si"
