@@ -24,7 +24,6 @@ spec:
             name: nginx01
             port:
               number: 80
-  # tls:
-  #   - hosts:
-  #       - tani-exe.f5.si
-  #     secretName: nginx01-tls
+  tls:
+    - hosts:
+        - tani-exe.f5.si
