@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
     kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: letsencrypt-staging
+    cert-manager.io/cluster-issuer: letsencrypt-production
     # cert-manager.io/issuer: "letsencrypt"
     # kubernetes.io/ingress.allow-http: "true"
     # nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -28,4 +28,4 @@ spec:
   tls:
     - hosts:
       - tani-exe.f5.si
-      secretName: tani-exe-tls
+      # secretName: tani-exe-tls
