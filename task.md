@@ -1,23 +1,9 @@
-## やること
+## feature
 
-### クラスタのセットアップ
+- りせっと
+- ingressをargocdの支配下に置く
+- hello-taniのdocker-imageを作る
+- 永続化ができないクラスタをさくっとつくる
+- SSL頑張る
 
-- kubernetesにいろいろ入れる
-  - hello taniを作る
-
-### VPSのセットアップ
-
-- VPSをついか
-    - tst-k8s-public-gateway
-- VPSのnginxの設定
-    - 標準で待ち受けるportを変更する
-        - 81?
-    - 80と443をgatewayにVPN越しにstreamを張る        
-
-### Gatewayのセットアップ
-
-- gatewayのnginxの設定
-    - まずnginxをインストールする
-    - 標準で待ち受けるportを変更する
-        - 81?
-    - 80と443から192.168.3.194(nginx-ingress external-ip)へのstreamを張る
+https://www.youtube.com/watch?v=hoLUigg4V18
