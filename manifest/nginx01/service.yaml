@@ -14,14 +14,7 @@ spec:
     spec:
       containers:
         - name: nginx01
-          image: nginx
-          volumeMounts:
-            - mountPath: "/usr/share/nginx/html"
-              name: task-pv-storage
-      volumes:
-        - name: task-pv-storage
-          persistentVolumeClaim:
-            claimName: task-pv-claim
+          image: tani3072/hello-nginx
 ---
 apiVersion: v1
 kind: Service

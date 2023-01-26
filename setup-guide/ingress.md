@@ -1,5 +1,5 @@
 ```bash
-$ kubectl apply -f insttall.yaml
+$ kubectl apply -f install.yaml
 ```
 
 ```bash
