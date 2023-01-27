@@ -1,11 +1,5 @@
 # 自作鯖の検証環境のやること等々
 
-## 参考にしたサイトたち
-
-[ArgoCD](https://tech.drecom.co.jp/gitops-withargocd/)
-
-[公開](https://blog.ebiiim.com/posts/homelab-kubernetes/)
-
 ## VMたち
 
 - 検証用のKubernetesClusterを作る
