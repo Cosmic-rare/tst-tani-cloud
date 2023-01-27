@@ -1,12 +1,11 @@
 # Install NFS CSI driver v4.1.0 version on a kubernetes cluster
 
 ## Install with kubectl
- - Option#1. remote install
+
 ```bash
 $ curl -skSL https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/v4.1.0/deploy/install-driver.sh | bash -s v4.1.0 --
 ```
 
-- check pods status:
 ```bash
 $ kubectl -n kube-system get pod -o wide -l app=csi-nfs-controller
 $ kubectl -n kube-system get pod -o wide -l app=csi-nfs-node
@@ -20,6 +19,7 @@ csi-nfs-node-dr4s4                        3/3     Running   0          35s     1
 ```
 
 ### clean up NFS CSI driver
+
 ```bash
 $ curl -skSL https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/v4.1.0/deploy/uninstall-driver.sh | bash -s v4.1.0 --
 ```

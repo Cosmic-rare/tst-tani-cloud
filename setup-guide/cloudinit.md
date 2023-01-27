@@ -1,9 +1,8 @@
-# CloudInitの使い方
-
-## テンプレートの作成
+## Create template
 
 ```bash
-$ wget https://cloud-images.ubuntu.com/focal/20230109/focal-server-cloudimg-amd64.img
+$ wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img # ubuntu 20.04
+$ wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img # ubuntu 22.04
 
 $ qm create 9000 --memory 512 --net0 virtio,bridge=vmbr0
 
@@ -22,13 +21,13 @@ $ qm template 9000
 $ rm -rf focal-server-cloudimg-amd64.img
 ```
 
-## クローン
+## clone template
 
 ```bash
 $ qm clone 9000 "${vmid}" --name "${vmname}" --full true
 ```
 
-## VMの設定
+## setting of VM
 
 ```bash
 $ qm set "${vmid}" --cores "${cpu}" --memory "${mem}"

@@ -1,5 +1,3 @@
-[参考にしたサイト](https://blog.framinal.life/entry/2020/04/16/022042)
-
 ```bash
 $ kubectl apply -f metallb-namespace.yaml
 $ kubectl apply -f metallb.yaml
