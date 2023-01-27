@@ -6,14 +6,7 @@
 
 [公開](https://blog.ebiiim.com/posts/homelab-kubernetes/)
 
-## やること
-
-### 事前準備
-
-- 今あるk8sクラスタをぶっこわす
-- proxmox-web-guiのipの割り振りメモを修正しておく
-
-### VMのセットアップ -> done
+## VMたち
 
 - 検証用のKubernetesClusterを作る
     - 10.89.0.0/16
@@ -42,56 +35,7 @@
         - 20GB
         - 192.168.3.193
 
-# nfs鯖のセットアップ -> done
-
-- /export/nfsに共有をかける
-
-### クラスタのセットアップ
-
-- ArgoCDをインストール
-- kubernetesにいろいろ入れる
-    - ArgoCDを使って流し込む
-    - metallb
-        - ingress用のipを設定する
-        - 192.168.3.194/32
-    - ingress
-        - metallbのipをdefaultからさっき設定したものに変える
-    - pvを作る(nfs)
-    - nginxをインストール
-    - hello taniを作る
-    - ingressをloadbalancerにする
-        - ExternalIPで接続できることを確認する
-
-### DDNS-NOWのセットアップ -> done
-
-- Domainを追加
-    - tani-exe.f5.si
-
-### VPSのセットアップ
-
-- VPSをついか
-    - tst-k8s-public-gateway
-- VPSのセットアップ -> done
-    - DNSをいい感じにする
-    - wireguardをVPSとgatewayに入れる
-- VPSのnginxの設定
-    - 標準で待ち受けるportを変更する
-        - 81?
-    - 80と443をgatewayにVPN越しにstreamを張る        
-
-### Gatewayのセットアップ
-
-- gatewayのnginxの設定
-    - まずnginxをインストールする
-    - 標準で待ち受けるportを変更する
-        - 81?
-    - 80と443から192.168.3.194(nginx-ingress external-ip)へのstreamを張る
-
 ## メモ
 
-- HTTPS…?
-    - cert-botはcronjobなので後回し
-- 暇だったら、クラスタぶっ壊してArgoがいい感じに流してくれるか検証
-    - ついでに再構築の手順もまとめておく
 - 今後導入したいやつ
     - flannel -> calico
