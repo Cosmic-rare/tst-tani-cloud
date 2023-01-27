@@ -3,11 +3,6 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    # cert-manager.io/cluster-issuer: letsencrypt-production
-    # cert-manager.io/issuer: "letsencrypt"
-    # kubernetes.io/ingress.allow-http: "true"
-    # nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    # nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
   name: ingress01
   namespace: default
 spec:
@@ -26,7 +21,3 @@ spec:
             name: nginx01
             port:
               number: 80
-  # tls:
-  #   - hosts:
-  #     - tani-exe.f5.si
-        # secretName: tani-exe-tls
