@@ -21,13 +21,3 @@ spec:
             name: nginx01
             port:
               number: 80
-  - host: "registry.tani-exe.f5.si"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: docker-registry
-            port:
-              number: 80
