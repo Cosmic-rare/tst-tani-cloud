@@ -21,7 +21,6 @@ spec:
             name: nginx01
             port:
               number: 80
-  rules:
   - host: "cloud.tani-exe.f5.si"
     http:
       paths:
