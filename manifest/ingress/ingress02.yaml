@@ -10,8 +10,12 @@ metadata:
   name: ingress02
   namespace: kubernetes-dashboard
 spec:
+  tls:
+  - hosts:
+    - dashboard.tani-exe.f5.si
+    secretName: dashboard-tls
   rules:
-  - host: "welwelcome.tani-exe.f5.si"
+  - host: "dashboard.tani-exe.f5.si"
     http:
       paths:
       - path: /
