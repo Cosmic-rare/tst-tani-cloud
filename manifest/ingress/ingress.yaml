@@ -6,10 +6,10 @@ metadata:
   name: ingress01
   namespace: default
 spec:
-  # tls:
-  # - hosts:
-  #   - welcome.tani-exe.f5.si
-  #   secretName: example-app-tls
+  tls:
+  - hosts:
+    - welcome.tani-exe.f5.si
+    secretName: example-app-tls
   rules:
   - host: "welcome.tani-exe.f5.si"
     http:
