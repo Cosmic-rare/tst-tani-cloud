@@ -10,3 +10,18 @@ spec:
   issuerRef:
     name: letsencrypt-cluster-issuer
     kind: ClusterIssuer
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: dashboard
+  namespace: kubernetes-dashboard
+spec:
+  dnsNames:
+    - dashboard.tani-exe.f5.si
+  secretName: dashboard-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer
