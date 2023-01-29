@@ -4,16 +4,16 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
   name: ingress02
-  namespace: kubernetes-dashboard
+  namespace: default
 spec:
   rules:
-  - host: "dashboard.tani-exe.f5.si"
+  - host: "welwelcome.tani-exe.f5.si"
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: kubernetes-dashboard
+            name: nginx01
             port:
-              number: 443
+              number: 80
