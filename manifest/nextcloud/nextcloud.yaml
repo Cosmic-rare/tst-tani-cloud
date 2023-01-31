@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nextcloud
+spec:
+  serviceName: nextcloud
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nextcloud
+  template:
+    metadata:
+      labels:
+        app: nextcloud
+    spec:
+      containers:
+      - name: nextcloud
+        image: nextcloud
+        volumeMounts:
+        - name: nextcloud
+          mountPath: /var/www/html/
+        env:
+          #- name: OVERWRITEPROTOCOL
+          #  value: "https"
+          - name: NEXTCLOUD_TRUSTED_DOMAINS
+            value: "cloud.tani-exe.f5.si"
+  volumeClaimTemplates:
+  - metadata:
+      name: nextcloud
+    spec:
+      storageClassName: truenas-iscsi-csi
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 20Gi
