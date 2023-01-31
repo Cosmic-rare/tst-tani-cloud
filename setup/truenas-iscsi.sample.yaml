@@ -1,0 +1,48 @@
+csiDriver:
+  name: "org.democratic-csi.iscsi"
+storageClasses:
+- name: truenas-iscsi-csi
+  defaultClass: true
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+  allowVolumeExpansion: true
+  parameters:
+    fsType: ext4
+  mountOptions: []
+  secrets:
+    provisioner-secret:
+    controller-publish-secret:
+    node-stage-secret:
+    node-publish-secret:
+    controller-expand-secret:
+driver:
+  config:
+    driver: freenas-iscsi
+    httpConnection:
+      protocol: http
+      host: 192.168.3.240
+      port: 80
+      username: root
+      password: "*****"
+    sshConnection:
+      host: 192.168.3.240
+      port: 22
+      username: root
+      password: "*****"
+    zfs:
+      datasetParentName: pool1/kubernetes
+      detachedSnapshotsDatasetParentName: pool1/k8s-snaps
+    iscsi:
+      targetPortal: 192.168.3.240:3260
+      namePrefix: csi-
+      targetGroups:
+        - targetGroupPortalGroup: 1
+          targetGroupInitiatorGroup: 1
+          targetGroupAuthType: None
+          targetGroupAuthGroup:
+      extentInsecureTpc: true
+      extentXenCompat: false
+      extentDisablePhysicalBlocksize: true
+      extentBlocksize: 4096
+      extentRpm: "SSD"
+      extentAvailThreshold: 0
