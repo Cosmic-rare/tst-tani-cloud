@@ -9,6 +9,10 @@ metadata:
   name: ingress03
   namespace: argocd
 spec:
+  tls:
+  - hosts:
+    - argocd.tani-exe.f5.si
+    secretName: argocd-tls
   rules:
     - host: argocd.tani-exe.f5.si
       http:
