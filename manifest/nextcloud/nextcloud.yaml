@@ -28,9 +28,9 @@ spec:
   - metadata:
       name: nextcloud
     spec:
-      storageClassName: truenas-iscsi-csi
+      storageClassName: standard
       accessModes:
       - ReadWriteOnce
       resources:
         requests:
-          storage: 20Gi
+          storage: 16Gi
