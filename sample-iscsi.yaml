@@ -13,7 +13,3 @@ spec:
     iqn: iqn.2005-10.org.freenas.ctl:target01
     lun: 1
     readOnly: false
-    chapAuthDiscovery: true
-    chapAuthSession: true
-    secretRef:
-      name: iscsi-chap-secret
