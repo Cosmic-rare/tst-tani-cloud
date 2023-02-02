@@ -10,6 +10,9 @@ spec:
   - hosts:
     - welcome.tani-exe.f5.si
     secretName: example-app-tls
+  - hosts:
+    - cloud.tani-exe.f5.si
+    secretName: cloud-tls
   rules:
   - host: "welcome.tani-exe.f5.si"
     http:
@@ -19,5 +22,15 @@ spec:
         backend:
           service:
             name: nginx01
+            port:
+              number: 80
+  - host: cloud.tani-exe.f5.si
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nextcloud
             port:
               number: 80

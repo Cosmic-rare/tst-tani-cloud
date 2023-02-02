@@ -40,3 +40,18 @@ spec:
   issuerRef:
     name: letsencrypt-cluster-issuer
     kind: ClusterIssuer
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cloud
+  namespace: default
+spec:
+  dnsNames:
+    - cloud.tani-exe.f5.si
+  secretName: cloud-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer
