@@ -5,6 +5,7 @@ metadata:
   namespace: default
 spec:
   type: LoadBalancer
+  loadBalancerIP: 192.168.3.214
   ports:
   - name: "mysql-port"
     protocol: "TCP"
