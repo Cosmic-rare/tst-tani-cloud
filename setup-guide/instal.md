@@ -11,12 +11,6 @@ $ sudo su -
 $ swapoff -a
 $ free -h
 $ vi /etc/fstab
-$ vi /etc/hosts
-
-# Settings for Kubernetes
-192.168.3.180 k8s-master
-192.168.3.181 k8s-worker-01
-192.168.3.182 k8s-worker-02
 
 $ cat > /etc/modules-load.d/containerd.conf <<EOF
 overlay
@@ -48,7 +42,7 @@ deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 $ apt-get update && apt-get install -y kubelet kubeadm kubectl
 $ sudo apt-mark hold kubelet kubeadm kubectl
-$ apt install -y nfs-common
+$ apt install -y nfs-common open-iscsi
 ```
 
 ## MasterNode
