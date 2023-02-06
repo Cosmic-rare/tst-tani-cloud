@@ -18,8 +18,12 @@ spec:
       - name: minio
         image: minio/minio:latest
         args:
-        - server
-        - /storage
+          - server
+          - /storage
+          - --address
+          - :9000
+          - --console-address
+          - :9001
         env:
           - name: MINIO_ACCESS_KEY
             value: "minio"
@@ -28,6 +32,8 @@ spec:
         ports:
           - containerPort: 9000
             hostPort: 9000
+          - containerPort: 9001
+            hostPort: 9001
         volumeMounts:
         - name: storage
           mountPath: "/storage"
