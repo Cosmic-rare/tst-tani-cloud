@@ -52,7 +52,7 @@ spec:
               - minio server /data --console-address :9090
   volumeClaimTemplates:
   - metadata:
-      name: storage
+      name: data
     spec:
       storageClassName: standard
       accessModes:
