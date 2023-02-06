@@ -1,28 +1,19 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: minio
   namespace: default
-  labels:
-    app: minio
 spec:
+  serviceName: minio
   replicas: 1
+  selector:
+    matchLabels:
+      app: minio
   template:
     metadata:
-      name: minio
       labels:
         app: minio
     spec:
-      volumeClaimTemplates:
-      - metadata:
-          name: data
-        spec:
-          storageClassName: standard
-          accessModes:
-          - ReadWriteOnce
-          resources:
-        requests:
-          storage: 8Gi
       containers:
         - name: minio
           image: quay.io/minio/minio:latest
@@ -59,7 +50,13 @@ spec:
             - -c
           args:
               - minio server /data --console-address :9090
-      restartPolicy: Always
-  selector:
-    matchLabels:
-      app: minio
+  volumeClaimTemplates:
+  - metadata:
+      name: storage
+    spec:
+      storageClassName: standard
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 8Gi
