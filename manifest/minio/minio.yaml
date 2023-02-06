@@ -24,9 +24,9 @@ spec:
             - name: MINIO_SECRET_KEY
               value: "minio123"
             - name: MINIO_ROOT_USER
-              value: tani
+              value: taniexe
             - name: MINIO_ROOT_PASSWORD
-              value: tani123
+              value: tani123456
           livenessProbe:
             httpGet:
               path: /minio/health/live
