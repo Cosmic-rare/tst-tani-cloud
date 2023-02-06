@@ -19,10 +19,14 @@ spec:
           image: quay.io/minio/minio:latest
           imagePullPolicy: IfNotPresent
           env:
-           - name: MINIO_ACCESS_KEY
-             value: "minio"
-           - name: MINIO_SECRET_KEY
-             value: "minio123"
+            - name: MINIO_ACCESS_KEY
+              value: "minio"
+            - name: MINIO_SECRET_KEY
+              value: "minio123"
+            - name: MINIO_ROOT_USER
+              value: tani
+            - name: MINIO_ROOT_PASSWORD
+              value: tani123
           livenessProbe:
             httpGet:
               path: /minio/health/live
