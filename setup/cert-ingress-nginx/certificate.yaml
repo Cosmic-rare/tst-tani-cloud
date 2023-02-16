@@ -55,3 +55,18 @@ spec:
   issuerRef:
     name: letsencrypt-cluster-issuer
     kind: ClusterIssuer
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: result-api
+  namespace: default
+spec:
+  dnsNames:
+    - api.result-database.tani-exe.f5.si
+  secretName: result-api-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer
