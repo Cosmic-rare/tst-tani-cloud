@@ -14,6 +14,9 @@ spec:
   - hosts:
     - cloud.tani-exe.f5.si
     secretName: cloud-tls
+  - hosts:
+    - api.result-database.tani-exe.f5.si
+    secretName: result-api-tls
   rules:
   - host: "welcome.tani-exe.f5.si"
     http:
