@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: result-api
+  template:
+    metadata:
+      labels:
+        app: result-api
+    spec:
+      containers:
+        - name: fastapi
+          image: tani3072/result-api
