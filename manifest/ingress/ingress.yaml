@@ -35,3 +35,13 @@ spec:
             name: nextcloud
             port:
               number: 80
+  - host: api.result-database.tani-exe.f5.si
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: result-api
+            port:
+              number: 80
