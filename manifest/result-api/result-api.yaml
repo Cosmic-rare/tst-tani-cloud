@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - name: fastapi
-          image: tani3072/result-api:v0.3
+          image: tani3072/result-api:latest
