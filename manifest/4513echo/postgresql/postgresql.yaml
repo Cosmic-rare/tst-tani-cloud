@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: 4513echo-postgresql
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  serviceName: "postgresql"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:15-alpine
+        env:
+          - name: POSTGRES_PASSWORD
+            value: "1234"
+          - name: POSTGRES_USER
+            value: "5678"
+          - name: PGDATA
+            value: "/var/lib/postgresql/data/db-file"
+        volumeMounts:
+        - name: postgres
+          mountPath: /var/lib/postgresql/data/db-file
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres
+    spec:
+      storageClassName: standard
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 8Gi

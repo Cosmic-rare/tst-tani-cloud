@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: iscsi-pv-postgresql
+spec:
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  iscsi:
+    targetPortal: 192.168.3.240:3261
+    iqn: iqn.2005-10.org.freenas.ctl:target01
+    lun: 3
+    readOnly: false
