@@ -3,7 +3,8 @@ kind: Service
 metadata:
   name: echo4513-postgres
 spec:
-  type: NodePort
+  type: LoadBalancer
+  loadBalancerIP: 192.168.3.216
   ports:
     - port: 5432
   selector:
