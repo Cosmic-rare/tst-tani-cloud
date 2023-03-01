@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: 4513echo-postgres
+  name: echo4513-postgres
 spec:
   type: ClusterIP
   ports:
     - port: 5432
   selector:
-    app: 4513echo-postgres
+    app: echo4513-postgres
