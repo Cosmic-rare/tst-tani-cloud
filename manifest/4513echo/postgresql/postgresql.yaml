@@ -19,14 +19,14 @@ spec:
         env:
           - name: POSTGRES_PASSWORD
             valueFrom:
-            secretKeyRef:
-              name: echo4513-postgres
-              key: pass
+              secretKeyRef:
+                name: echo4513-postgres
+                key: pass
           - name: POSTGRES_USER
             valueFrom:
-            secretKeyRef:
-              name: echo4513-postgres
-              key: user
+              secretKeyRef:
+                name: echo4513-postgres
+                key: user
         volumeMounts:
         - name: postgres
           mountPath: /var/lib/postgresql
