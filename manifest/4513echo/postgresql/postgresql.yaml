@@ -18,9 +18,15 @@ spec:
         image: postgres:15-alpine
         env:
           - name: POSTGRES_PASSWORD
-            value: "1234"
+            valueFrom:
+            secretKeyRef:
+              name: echo4513-postgres
+              key: pass
           - name: POSTGRES_USER
-            value: "5678"
+            valueFrom:
+            secretKeyRef:
+              name: echo4513-postgres
+              key: user
         volumeMounts:
         - name: postgres
           mountPath: /var/lib/postgresql

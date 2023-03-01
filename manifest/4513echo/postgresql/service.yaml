@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: echo4513-postgres
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: 5432
   selector:
