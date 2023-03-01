@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: 4513echo-postgresql
   labels:
-    app: postgresql
+    app: 4513echo-postgresql
 spec:
   type: ClusterIP
   ports:
     - port: 5432
   selector:
-    app: postgresql
+    app: 4513echo-postgresql
