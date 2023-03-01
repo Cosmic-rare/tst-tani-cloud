@@ -21,11 +21,9 @@ spec:
             value: "1234"
           - name: POSTGRES_USER
             value: "5678"
-          - name: PGDATA
-            value: "/var/lib/postgresql/data/db-file"
         volumeMounts:
         - name: postgres
-          mountPath: /var/lib/postgresql/data/db-file
+          mountPath: /var/lib/postgresql
   volumeClaimTemplates:
   - metadata:
       name: postgres
