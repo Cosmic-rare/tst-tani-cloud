@@ -5,13 +5,13 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: postgres
+      app: 4513echo-postgres
   serviceName: "postgres"
   replicas: 1
   template:
     metadata:
       labels:
-        app: postgres
+        app: 4513echo-postgres
     spec:
       containers:
       - name: postgres
