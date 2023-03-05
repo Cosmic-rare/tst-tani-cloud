@@ -17,6 +17,12 @@ spec:
   - hosts:
     - api.result-database.tani-exe.f5.si
     secretName: result-api-tls
+  - hosts:
+    - console.s3.4513echo.tani-exe.f5.si
+    secretName: echo4513-minio-console-tls
+  - hosts:
+    - s3.4513echo.tani-exe.f5.si
+    secretName: echo4513-minio-tls
   rules:
   - host: "welcome.tani-exe.f5.si"
     http:
