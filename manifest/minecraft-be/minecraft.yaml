@@ -54,6 +54,13 @@ spec:
         - name: main
           image: itzg/minecraft-bedrock-server
           imagePullPolicy: Always
+          resources:
+            requests:  # ここで指定
+              cpu: 1.5
+              memory: 2Gi
+            limits: # ここで制限を指定
+              cpu: 2
+              memory: 2Gi
           envFrom:
             - configMapRef:
                 name: minecraft-bedrock
