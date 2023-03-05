@@ -10,6 +10,6 @@ spec:
   storageClassName: standard
   iscsi:
     targetPortal: 192.168.3.240:3261
-    iqn: iqn.2005-10.org.freenas.ctl:target01
-    lun: 3
+    iqn: iqn.2005-10.org.freenas.ctl:echo4513
+    lun: 1
     readOnly: false

@@ -36,7 +36,7 @@ spec:
                 key: user
         volumeMounts:
         - name: postgres
-          mountPath: /var/lib/postgresql
+          mountPath: /var/lib/postgresql/data
   volumeClaimTemplates:
   - metadata:
       name: postgres
