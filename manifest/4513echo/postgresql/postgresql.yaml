@@ -43,9 +43,9 @@ spec:
   - metadata:
       name: postgres
     spec:
-      storageClassName: standard
+      storageClassName: nfs-csi
       accessModes:
       - ReadWriteOnce
       resources:
         requests:
-          storage: 8Gi
+          storage: 2Gi
