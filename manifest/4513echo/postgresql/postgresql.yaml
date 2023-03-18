@@ -16,6 +16,13 @@ spec:
       containers:
       - name: postgres
         image: postgres:15-alpine
+        resources:
+          requests:  # ここで指定
+            cpu: 1
+            memory: 1.5Gi
+          limits: # ここで制限を指定
+            cpu: 1.5
+            memory: 2Gi
         env:
           - name: POSTGRES_PASSWORD
             valueFrom:
@@ -27,16 +34,18 @@ spec:
               secretKeyRef:
                 name: echo4513-postgres
                 key: user
+          - name: PGDATA
+            value: /var/lib/postgresql/data/pgdata
         volumeMounts:
         - name: postgres
-          mountPath: /var/lib/postgresql
+          mountPath: /var/lib/postgresql/data
   volumeClaimTemplates:
   - metadata:
       name: postgres
     spec:
-      storageClassName: standard
+      storageClassName: nfs-csi
       accessModes:
       - ReadWriteOnce
       resources:
         requests:
-          storage: 8Gi
+          storage: 2Gi

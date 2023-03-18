@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo4513-minio
+  namespace: default
+spec:
+  selector:
+    app: echo4513-minio
+  ports:
+    - port: 9090
+      name: console
+    - port: 9000
+      name: s3
+  type: LoadBalancer
