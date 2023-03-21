@@ -9,8 +9,8 @@ metadata:
 spec:
   tls:
   - hosts:
-    - welcome.tani-exe.f5.si
-    secretName: example-app-tls
+    - tani-exe.f5.si
+    secretName: welcome-app-tls
   - hosts:
     - cloud.tani-exe.f5.si
     secretName: cloud-tls
@@ -24,7 +24,7 @@ spec:
     - s3.4513echo.tani-exe.f5.si
     secretName: echo4513-minio-tls
   rules:
-  - host: "welcome.tani-exe.f5.si"
+  - host: tani-exe.f5.si
     http:
       paths:
       - path: /
