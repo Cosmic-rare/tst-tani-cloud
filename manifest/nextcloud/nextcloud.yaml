@@ -16,13 +16,6 @@ spec:
       containers:
       - name: nextcloud
         image: nextcloud
-          resources:
-            requests:  # ここで指定
-              cpu: 0.5
-              memory: 1Gi
-            limits: # ここで制限を指定
-              cpu: 10.7
-              memory: 1.5Gi
         volumeMounts:
         - name: nextcloud
           mountPath: /var/www/html/
