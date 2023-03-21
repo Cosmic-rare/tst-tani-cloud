@@ -4,3 +4,9 @@
 
 - 今後導入したいやつ
     - flannel -> calico
+
+## ToDO
+
+- nfs-csi
+- tani's minio
+- minecraft-be
