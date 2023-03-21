@@ -15,10 +15,3 @@ spec:
       containers:
         - name: fastapi
           image: tani3072/result-api:latest
-          # resources:
-          #   requests:  # ここで指定
-          #     cpu: 0.5
-          #     memory: 200Mi
-          #   limits: # ここで制限を指定
-          #     cpu: 0.75
-          #     memory: 500Mi
