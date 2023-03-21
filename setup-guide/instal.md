@@ -48,7 +48,7 @@ $ apt install -y nfs-common open-iscsi
 ## MasterNode
 
 ```bash
-$ kubeadm init --control-plane-endpoint=192.168.3.190:6443 --pod-network-cidr=10.89.0.0/16
+$ kubeadm init --control-plane-endpoint=192.168.3.180:6443 --pod-network-cidr=10.8.0.0/16
 $ exit
 $ mkdir -p $HOME/.kube
 $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
