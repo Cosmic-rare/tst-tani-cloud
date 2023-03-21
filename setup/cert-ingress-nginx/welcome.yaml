@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: welcome
+  namespace: default
+spec:
+  dnsNames:
+    - welcome.tani-exe.f5.si
+  secretName: welcome-app-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer
