@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   dnsNames:
-    - welcome.tani-exe.f5.si
+    - tani-exe.f5.si
   secretName: welcome-app-tls
   issuerRef:
     name: letsencrypt-cluster-issuer
