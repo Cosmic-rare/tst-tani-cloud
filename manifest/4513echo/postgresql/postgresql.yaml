@@ -16,13 +16,6 @@ spec:
       containers:
       - name: postgres
         image: postgres:15-alpine
-        resources:
-          requests:  # ここで指定
-            cpu: 1
-            memory: 1.5Gi
-          limits: # ここで制限を指定
-            cpu: 1.5
-            memory: 2Gi
         env:
           - name: POSTGRES_PASSWORD
             valueFrom:
@@ -43,7 +36,7 @@ spec:
   - metadata:
       name: postgres
     spec:
-      storageClassName: nfs-csi
+      storageClassName: standard
       accessModes:
       - ReadWriteOnce
       resources:
