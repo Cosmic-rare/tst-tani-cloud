@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app: echo4513-postgres
   serviceName: "postgres"
-  replicas: 1
+  replicas: 0
   template:
     metadata:
       labels:
