@@ -100,3 +100,18 @@ spec:
   issuerRef:
     name: letsencrypt-cluster-issuer
     kind: ClusterIssuer
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gitea
+  namespace: default
+spec:
+  dnsNames:
+    - git.tani-exe.f5.si
+  secretName: gitea-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer

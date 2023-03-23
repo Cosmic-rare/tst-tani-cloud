@@ -23,6 +23,9 @@ spec:
   - hosts:
     - s3.4513echo.tani-exe.f5.si
     secretName: echo4513-minio-tls
+  - hosts:
+    - git.tani-exe.f5.si
+    secretName: gitea-tls
   rules:
   - host: tani-exe.f5.si
     http:
@@ -74,3 +77,13 @@ spec:
             name: echo4513-minio
             port:
               number: 9000
+  - host: git.tani-exe.f5.si
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: gitea
+            port:
+              number: 3000
