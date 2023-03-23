@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: jellyfin
+  namespace: default
+spec:
+  serviceName: jellyfin
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jellyfin
+  template:
+    metadata:
+      labels:
+        app: jellyfin
+    spec:
+      containers:
+      - name: jellyfin
+        image: jellyfin/jellyfin
+        volumeMounts:
+        - mountPath: /cache
+          name: jellyfin-cache
+        - mountPath: /config
+          name: jellyfin-config
+        - mountPath: /media
+          name: jellyfin-media
+  volumeClaimTemplates:
+  - metadata:
+      name: jellyfin-cache
+    spec:
+      storageClassName: slow
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi
+  - metadata:
+      name: jellyfin-config
+    spec:
+      storageClassName: slow
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 5Gi
+  - metadata:
+      name: jellyfin-media
+    spec:
+      storageClassName: slow
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 100Gi
