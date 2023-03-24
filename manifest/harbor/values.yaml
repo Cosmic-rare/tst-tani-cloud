@@ -17,24 +17,24 @@ persistence:
   enabled: true
   persistentVolumeClaim:
     registry:
-      storageClass: "longhorn"
+      storageClass: "longhorn-block"
       accessMode: ReadWriteOnce
       size: 10Gi
     jobservice:
       jobLog:
-        storageClass: "longhorn"
+        storageClass: "longhorn-block"
         accessMode: ReadWriteOnce
         size: 1Gi
     database:
-      storageClass: "longhorn"
+      storageClass: "longhorn-block"
       accessMode: ReadWriteOnce
       size: 2Gi
     redis:
-      storageClass: "longhorn"
+      storageClass: "longhorn-block"
       accessMode: ReadWriteOnce
       size: 1Gi
     trivy:
-      storageClass: "longhorn"
+      storageClass: "longhorn-block"
       accessMode: ReadWriteOnce
       size: 5Gi
 # harborAdminPassword: "Harbor12345"
