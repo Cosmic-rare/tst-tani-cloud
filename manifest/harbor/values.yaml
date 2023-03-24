@@ -2,7 +2,7 @@ expose:
   type: ingress
   tls:
     enabled: true
-    certSource: auto
+    certSource: secret
     secret:
       secretName: "harbor-tls"
       notarySecretName: "harbor-tls"
