@@ -1,0 +1,40 @@
+expose:
+  type: ingress
+  tls:
+    enabled: true
+    certSource: auto
+    secret:
+      secretName: "harbor-tls"
+      notarySecretName: "harbor-tls"
+  ingress:
+    hosts:
+      core: core.harbor.tani-exe.f5.si
+      notary: notary.harbor.tani-exe.f5.si
+    controller: default
+    className: "nginx"
+externalURL: https://core.harbor.tani-exe.f5.si
+persistence:
+  enabled: true
+  persistentVolumeClaim:
+    registry:
+      storageClass: "longhorn"
+      accessMode: ReadWriteOnce
+      size: 10Gi
+    jobservice:
+      jobLog:
+        storageClass: "longhorn"
+        accessMode: ReadWriteOnce
+        size: 1Gi
+    database:
+      storageClass: "longhorn"
+      accessMode: ReadWriteOnce
+      size: 2Gi
+    redis:
+      storageClass: "longhorn"
+      accessMode: ReadWriteOnce
+      size: 1Gi
+    trivy:
+      storageClass: "longhorn"
+      accessMode: ReadWriteOnce
+      size: 5Gi
+# harborAdminPassword: "Harbor12345"

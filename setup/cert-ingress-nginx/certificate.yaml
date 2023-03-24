@@ -115,3 +115,19 @@ spec:
   issuerRef:
     name: letsencrypt-cluster-issuer
     kind: ClusterIssuer
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: harbor
+  namespace: default
+spec:
+  dnsNames:
+    - core.harbor.tani-exe.f5.si
+    - notary.harbor.tani-exe.f5.si
+  secretName: harbor-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer
