@@ -14,4 +14,6 @@ spec:
     spec:
       containers:
         - name: fastapi
-          image: tani3072/result-api:latest
+          image: result-database/ocr-api:latest
+      imagePullSecrets:
+        - name: harbor
