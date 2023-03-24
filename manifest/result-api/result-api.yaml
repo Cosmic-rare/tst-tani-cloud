@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: fastapi
-          image: result-database/ocr-api:latest
+          image: core.harbor.tani-exe.f5.si/result-database/ocr-api:latest
       imagePullSecrets:
         - name: harbor
