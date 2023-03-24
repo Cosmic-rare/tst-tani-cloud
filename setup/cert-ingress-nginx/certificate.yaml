@@ -134,7 +134,7 @@ spec:
 
 ---
 
-piVersion: cert-manager.io/v1
+apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: jellyfin
