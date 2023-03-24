@@ -26,6 +26,9 @@ spec:
   - hosts:
     - git.tani-exe.f5.si
     secretName: gitea-tls
+  - hosts:
+    - jellyfin.tani-exe.f5.si
+    secretName: jellyfin-tls
   rules:
   - host: tani-exe.f5.si
     http:
@@ -87,3 +90,13 @@ spec:
             name: gitea
             port:
               number: 3000
+  - host: jellyfin.tani-exe.f5.si
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: jellyfin
+            port:
+              number: 8096
