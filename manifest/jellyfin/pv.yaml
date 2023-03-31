@@ -7,22 +7,25 @@ spec:
     storage: 100Gi
   accessModes:
     - ReadWriteOnce
-  storageClassName: slow
   mountOptions:
     - vers=3.0
-  smb:
-    username:               
-      valueFrom:
-        secretKeyRef:
-          name: truenas-smb
-          key: user
-    password:
-      valueFrom:
-        secretKeyRef:
-          name: truenas-smb
-          key: pass
-    server: 192.168.3.240
-    share: /media/media
+  csi:
+    driver: csi/cifs
+    volumeHandle: cifs-volume
+    readOnly: false
+    volumeAttributes:
+      server: 192.168.3.240
+      share: /media/media
+      username:               
+        valueFrom:
+          secretKeyRef:
+            name: truenas-smb
+            key: user
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: truenas-smb
+            key: pass
 
 ---
 
@@ -35,22 +38,25 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteOnce
-  storageClassName: slow
   mountOptions:
     - vers=3.0
-  smb:
-    username:               
-      valueFrom:
-        secretKeyRef:
-          name: truenas-smb
-          key: user
-    password:
-      valueFrom:
-        secretKeyRef:
-          name: truenas-smb
-          key: pass
-    server: 192.168.3.240
-    share: /media/config
+  csi:
+    driver: csi/cifs
+    volumeHandle: cifs-volume
+    readOnly: false
+    volumeAttributes:
+      server: 192.168.3.240
+      share: /media/config
+      username:               
+        valueFrom:
+          secretKeyRef:
+            name: truenas-smb
+            key: user
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: truenas-smb
+            key: pass
 
 ---
 
@@ -63,19 +69,22 @@ spec:
     storage: 10Gi
   accessModes:
     - ReadWriteOnce
-  storageClassName: slow
   mountOptions:
     - vers=3.0
-  smb:
-    username:               
-      valueFrom:
-        secretKeyRef:
-          name: truenas-smb
-          key: user
-    password:
-      valueFrom:
-        secretKeyRef:
-          name: truenas-smb
-          key: pass
-    server: 192.168.3.240
-    share: /media/cache
+  csi:
+    driver: csi/cifs
+    volumeHandle: cifs-volume
+    readOnly: false
+    volumeAttributes:
+      server: 192.168.3.240
+      share: /media/cache
+      username:               
+        valueFrom:
+          secretKeyRef:
+            name: truenas-smb
+            key: user
+      password:
+        valueFrom:
+          secretKeyRef:
+            name: truenas-smb
+            key: pass
