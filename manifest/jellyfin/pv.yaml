@@ -9,4 +9,4 @@ spec:
     - ReadWriteOnce
   nfs:
     server: 192.168.3.240
-    path: /mnt/main/kubernetes-jellyfin
+    path: /mnt/main/kubernetes-jellyfin/media
