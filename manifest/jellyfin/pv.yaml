@@ -8,9 +8,21 @@ spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: slow
-  nfs:
+  mountOptions:
+    - vers=3.0
+  smb:
+    username:               
+      valueFrom:
+        secretKeyRef:
+          name: truenas-smb
+          key: user
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: truenas-smb
+          key: pass
     server: 192.168.3.240
-    path: /mnt/main/kubernetes-jellyfin/media
+    share: /media/media
 
 ---
 
@@ -24,9 +36,21 @@ spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: slow
-  nfs:
+  mountOptions:
+    - vers=3.0
+  smb:
+    username:               
+      valueFrom:
+        secretKeyRef:
+          name: truenas-smb
+          key: user
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: truenas-smb
+          key: pass
     server: 192.168.3.240
-    path: /mnt/main/kubernetes-jellyfin/config
+    share: /media/config
 
 ---
 
@@ -40,6 +64,18 @@ spec:
   accessModes:
     - ReadWriteOnce
   storageClassName: slow
-  nfs:
+  mountOptions:
+    - vers=3.0
+  smb:
+    username:               
+      valueFrom:
+        secretKeyRef:
+          name: truenas-smb
+          key: user
+    password:
+      valueFrom:
+        secretKeyRef:
+          name: truenas-smb
+          key: pass
     server: 192.168.3.240
-    path: /mnt/main/kubernetes-jellyfin/cache
+    share: /media/cache
