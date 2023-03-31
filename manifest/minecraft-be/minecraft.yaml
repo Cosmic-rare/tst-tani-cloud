@@ -15,7 +15,7 @@ data:
   #DEFAULT_PLAYER_PERMISSION_LEVEL: "member" # Options: visitor, member, operator
   #LEVEL_NAME: "my_minecraft_world"
   #LEVEL_SEED: "33480944"
-  SERVER_NAME: "谷鯖"
+  SERVER_NAME: "谷鯖2"
   #SERVER_PORT: "19132"
   #LEVEL_TYPE: "DEFAULT" # Options: FLAT, LEGACY, DEFAULT
   #ALLOW_CHEATS: "false" # Options: true, false
@@ -56,7 +56,7 @@ spec:
           imagePullPolicy: Always
           resources:
             requests:  # ここで指定
-              cpu: 1.5
+              cpu: 1
               memory: 2Gi
             limits: # ここで制限を指定
               cpu: 2
@@ -85,7 +85,7 @@ spec:
     - metadata:
         name: data
       spec:
-        storageClassName: nfs-csi
+        storageClassName: synostorage
         accessModes:
           - ReadWriteOnce
         resources:
