@@ -16,16 +16,18 @@ spec:
     volumeAttributes:
       server: 192.168.3.240
       share: /media/media
-      username:               
-        valueFrom:
-          secretKeyRef:
-            name: truenas-smb
-            key: user
-      password:
-        valueFrom:
-          secretKeyRef:
-            name: truenas-smb
-            key: pass
+      username: ""
+      password: ""
+      mountOptions: "dir_mode=0777,file_mode=0777,noperm"
+      security: "ntlm"
+      nodePublishSecretRef:
+        name: truenas-smb
+      volumeContext:
+        smb:
+          options:
+            client:
+              username: "username"
+              password: "password"
 
 ---
 
@@ -47,16 +49,18 @@ spec:
     volumeAttributes:
       server: 192.168.3.240
       share: /media/config
-      username:               
-        valueFrom:
-          secretKeyRef:
-            name: truenas-smb
-            key: user
-      password:
-        valueFrom:
-          secretKeyRef:
-            name: truenas-smb
-            key: pass
+      username: ""
+      password: ""
+      mountOptions: "dir_mode=0777,file_mode=0777,noperm"
+      security: "ntlm"
+      nodePublishSecretRef:
+        name: truenas-smb
+      volumeContext:
+        smb:
+          options:
+            client:
+              username: "username"
+              password: "password"
 
 ---
 
@@ -78,13 +82,15 @@ spec:
     volumeAttributes:
       server: 192.168.3.240
       share: /media/cache
-      username:               
-        valueFrom:
-          secretKeyRef:
-            name: truenas-smb
-            key: user
-      password:
-        valueFrom:
-          secretKeyRef:
-            name: truenas-smb
-            key: pass
+      username: ""
+      password: ""
+      mountOptions: "dir_mode=0777,file_mode=0777,noperm"
+      security: "ntlm"
+      nodePublishSecretRef:
+        name: truenas-smb
+      volumeContext:
+        smb:
+          options:
+            client:
+              username: "username"
+              password: "password"
