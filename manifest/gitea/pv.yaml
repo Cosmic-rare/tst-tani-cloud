@@ -9,7 +9,7 @@ spec:
     - ReadWriteOnce
   storageClassName: standard
   iscsi:
-    targetPortal: 192.168.3.240:3261
-    iqn: iqn.2005-10.org.freenas.ctl:target01
-    lun: 3
+    targetPortal: 192.168.3.241:3260
+    iqn: iqn.2000-01.com.synology:tani-nas.Target-1.3c2cf4b6fd1
+    lun: 1
     readOnly: false
