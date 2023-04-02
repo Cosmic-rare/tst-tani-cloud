@@ -1,0 +1,82 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: truenas-gitea
+spec:
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  iscsi:
+    targetPortal: 192.168.3.240:3261
+    iqn: iqn.2005-10.org.freenas.ctl:target01
+    lun: 3
+    readOnly: false
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: synology-gitea
+spec:
+  capacity:
+    storage: 10G
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  iscsi:
+    targetPortal: 192.168.3.241:3260
+    iqn: iqn.2000-01.com.synology:tani-nas.Target-1.3c2cf4b6fd1
+    lun: 1
+    readOnly: false
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: cloner
+  namespace: default
+spec:
+  serviceName: cloner
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloner
+  template:
+    metadata:
+      labels:
+        app: cloner
+    spec:
+      containers:
+      - name: cloner
+        image: ubuntu:22.04
+        command:
+          - sleep
+          - '9999'
+        volumeMounts:
+        - mountPath: /syno
+          name: syno-nas
+        - mountPath: /nas
+          name: nas
+  volumeClaimTemplates:
+  - metadata:
+      name: nas
+    spec:
+      storageClassName: standard
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 20Gi
+  - metadata:
+      name: syno-nas
+    spec:
+      storageClassName: standard
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10G
