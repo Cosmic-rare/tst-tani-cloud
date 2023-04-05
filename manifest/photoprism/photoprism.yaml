@@ -91,7 +91,7 @@ spec:
   - metadata:
       name: photoprism-originals-pvc
     spec:
-      storageClassName: truenas-slow
+      storageClassName: standard
       accessModes:
       - ReadWriteOnce
       resources:
@@ -100,7 +100,7 @@ spec:
   - metadata:
       name: photoprism-pvc
     spec:
-      storageClassName: truenas-slow
+      storageClassName: standard
       accessModes:
       - ReadWriteOnce
       resources:

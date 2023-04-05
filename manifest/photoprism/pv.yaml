@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: photoprism-originals-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  iscsi:
+    targetPortal: 192.168.3.240:3261
+    iqn: iqn.2005-10.org.freenas.ctl:target01
+    lun: 4
+    readOnly: false
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: photoprism-pv
+spec:
+  capacity:
+    storage: 30Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  iscsi:
+    targetPortal: 192.168.3.240:3261
+    iqn: iqn.2005-10.org.freenas.ctl:target01
+    lun: 5
+    readOnly: false
