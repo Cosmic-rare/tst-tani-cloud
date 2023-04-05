@@ -74,12 +74,6 @@ spec:
             value: "true"
           - name: PHOTOPRISM_WORKERS
             value: "7"
-
-        # Load database DSN & admin password from secret
-        envFrom:
-        - secretRef:
-            name: photoprism-secrets
-            optional: false
         ports:
           - containerPort: 2342
         volumeMounts:
