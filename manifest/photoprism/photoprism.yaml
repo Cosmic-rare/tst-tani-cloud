@@ -1,0 +1,108 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: photoprism
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: photoprism
+  serviceName: photoprism
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: photoprism
+    spec:
+      containers:
+      - name: photoprism
+        image: photoprism/photoprism:latest
+        env:
+          - name: HOME
+            value: /photoprism
+          - name: PHOTOPRISM_ADMIN_PASSWORD
+            value: password
+          - name: PHOTOPRISM_DARKTABLE_PRESETS
+            value: "false"
+          - name: PHOTOPRISM_DATABASE_DRIVER
+            value: mysql
+          - name: PHOTOPRISM_DATABASE_NAME
+            value: photoprism
+          - name: PHOTOPRISM_DATABASE_PASSWORD
+            value: password
+          - name: PHOTOPRISM_DATABASE_SERVER
+            value: 192.168.3.214:3306
+          - name: PHOTOPRISM_DATABASE_USER
+            value: photoprism
+          - name: PHOTOPRISM_DEBUG
+            value: "false"
+          - name: PHOTOPRISM_DETECT_NSFW
+            value: "false"
+          - name: PHOTOPRISM_DISABLE_CHOWN
+            value: "false"
+          - name: PHOTOPRISM_DISABLE_CLASSIFICATION
+            value: "false"
+          - name: PHOTOPRISM_DISABLE_FACES
+            value: "false"
+          - name: PHOTOPRISM_DISABLE_SETTINGS
+            value: "false"
+          - name: PHOTOPRISM_DISABLE_TENSORFLOW
+            value: "false"
+          - name: PHOTOPRISM_DISABLE_WEBDAV
+            value: "false"
+          - name: PHOTOPRISM_EXPERIMENTAL
+            value: "false"
+          - name: PHOTOPRISM_HTTP_COMPRESSION
+            value: gzip
+          - name: PHOTOPRISM_ORIGINALS_LIMIT
+            value: "5000"
+          - name: PHOTOPRISM_PUBLIC
+            value: "false"
+          - name: PHOTOPRISM_READONLY
+            value: "false"
+          - name: PHOTOPRISM_SITE_AUTHOR
+            value: ""
+          - name: PHOTOPRISM_SITE_CAPTION
+            value: Browse Your Life
+          - name: PHOTOPRISM_SITE_DESCRIPTION
+            value: ""
+          - name: PHOTOPRISM_SITE_TITLE
+            value: PhotoPrism
+          - name: PHOTOPRISM_SITE_URL
+            value: http://localhost:2342/
+          - name: PHOTOPRISM_UPLOAD_NSFW
+            value: "true"
+          - name: PHOTOPRISM_WORKERS
+            value: "7"
+
+        # Load database DSN & admin password from secret
+        envFrom:
+        - secretRef:
+            name: photoprism-secrets
+            optional: false
+        ports:
+          - containerPort: 2342
+        volumeMounts:
+          - mountPath: /photoprism/originals
+            name: photoprism-originals-pvc
+          - mountPath: /photoprism/storage
+            name: photoprism-pvc
+  volumeClaimTemplates:
+  - metadata:
+      name: photoprism-originals-pvc
+    spec:
+      storageClassName: truenas-slow
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi
+  - metadata:
+      name: photoprism-pvc
+    spec:
+      storageClassName: truenas-slow
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 30Gi
