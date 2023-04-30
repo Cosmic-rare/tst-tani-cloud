@@ -10,6 +10,5 @@ spec:
   ports:
   - name: minecraft01
     port: 25565
-    nodePort: 34488
   selector:
     app: minecraft01
