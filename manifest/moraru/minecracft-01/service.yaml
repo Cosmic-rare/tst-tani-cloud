@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: minecraft01
+  namespace: moraru
+  labels:
+    app: minecraft
+spec:
+  type: NodePort
+  ports:
+  - name: minecraft01
+    port: 25565
+    nodePort: 34488
+  selector:
+    app: minecraft01

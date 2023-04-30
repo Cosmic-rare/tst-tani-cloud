@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: minecraft01
+  namespace: moraru
+  labels:
+    app: minecraft01
+spec:
+  selector:
+    matchLabels:
+      app: minecraft01
+  serviceName: minecraft01
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: minecraft01
+    spec:
+      containers:
+      - image: itzg/minecraft-server
+        name: minecraft01
+        env:
+        - name: EULA
+          value: "TRUE"
+        - name: OPS
+          value: "Tani_exe"   # minecraft内のOP権限持ちのユーザ名をここに
+        - name: LEVEL
+          value: "1.19.4"     # 作りたいminecraft鯖のバージョンをここに
+        - name: MOTD
+          value: "この鯖は...なんだ...?"  # minecraft内のサーバリストの所に出るサーバ説明
+        - name: TZ
+          value: "Asia/Tokyo"
+        - name: SERVER_NAME
+          value: "tani-exe.f5.si" # サーバのドメイン名
+        - name: MEMORY
+          value: "2G"         # 割り当てるメモリ。resourcelimitと同じ値にしておくこと
+        - name: SPAWN_PROTECTION
+          value: "0"
+        - name: SEED
+          value: '4488'
+        - name: DIFFICULTY
+          value: normal
+        ports:
+        - name: minecraft
+          containerPort: 25565
+        volumeMounts:
+        - name: minecraft-data
+          mountPath: /data
+  volumeClaimTemplates:
+  - metadata:
+      name: minecraft-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 16Gi
