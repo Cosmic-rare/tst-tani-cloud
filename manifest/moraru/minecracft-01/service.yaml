@@ -4,7 +4,7 @@ metadata:
   name: minecraft01
   namespace: moraru
   labels:
-    app: minecraft
+    app: minecraft01
 spec:
   type: NodePort
   ports:
