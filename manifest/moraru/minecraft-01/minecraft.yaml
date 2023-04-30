@@ -50,8 +50,9 @@ spec:
   - metadata:
       name: minecraft-data
     spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClass: standard
+      storageClassName: standard
+      accessModes:
+      - ReadWriteOnce
       resources:
         requests:
           storage: 16Gi
