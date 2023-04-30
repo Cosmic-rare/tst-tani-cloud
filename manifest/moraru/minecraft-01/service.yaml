@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: minecraft01
-  namespace: moraru
+  namespace: default
   labels:
     app: minecraft01
 spec:

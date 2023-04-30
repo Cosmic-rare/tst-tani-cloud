@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: minecraft01
-  namespace: moraru
+  namespace: default
   labels:
     app: minecraft01
 spec:
