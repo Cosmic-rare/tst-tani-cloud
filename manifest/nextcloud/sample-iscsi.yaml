@@ -4,7 +4,7 @@ metadata:
   name: iscsi-pv01
 spec:
   capacity:
-    storage: 16Gi
+    storage: 64Gi
   accessModes:
     - ReadWriteOnce
   storageClassName: standard
